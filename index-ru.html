@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta lang="ru">
+		<meta charset="utf-8">
+		<link rel="icon" type="image/x-icon" href="joystick-cartoon-gamers-with-white-background_114341-193.png">
+		<title>Junior Unity Developer | Dinar Ismagilov</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+		<style type="text/css">
+			*
+			{
+				font-family: 'Source Code Pro', monospace;
+				scroll-behavior: smooth;
+			}
+			::-webkit-scrollbar {
+			   width: 6px;
+			   background-color:  #191919;
+			   opacity: 0.2;
+			   transition: 0.6s;
+			}
+			::-webkit-scrollbar:hover {
+			   width: 20px;
+			    opacity: 1;
+			}
+			::-webkit-scrollbar-thumb {
+			  background: #a1d849;
+			  box-shadow: 0px 0px 20px #a1d849;
+			}
+			body
+			{
+				background-color: #191919;
+			}
+			header
+			{
+				height: 95vh;
+				background-color: #191919;
+			}
+			.container
+			{
+				text-align: center;
+				padding: 0px;
+				max-width: 1280px;
+			}
+/* -------------- Begin of Header Block ------------- */
+			.navbar ul li
+			{
+				color: #e2e2e2;
+				display: inline-block;
+				font-size: 1.2em;
+			}
+			.navbar
+			{
+				justify-content: flex-end;
+				width: 100%;
+				z-index: 10;
+				margin: 0 auto;
+				margin-top:5px;
+				word-spacing: 30px;
+				padding: 0px;
+				height: 72px;
+			}
+			.navbar ul li:first-child
+			{
+				width: 65.5%;
+				margin-top: 5px;
+				text-align: left;
+			}
+			.navbar ul li a
+			{
+				color: white;
+				font-weight: 1000;
+				text-transform: uppercase;
+				text-decoration: none;
+			}
+			.navbar ul li a::after
+			{
+				content: '';
+				display: block;
+				margin-top: 5px;
+				width: 0;
+				height: 3px;
+				background: #a1d849;
+				transition: width .3s;
+			}
+			.navbar ul li a:hover::after
+			{
+				width: 100%;
+			}
+			.lngbtn
+			{
+				border:2px solid white;
+				border-radius: 2px;
+			}
+			.Information 
+			{
+				width: 100%;
+				margin: 0 auto;
+				margin-top: 220px;
+				text-align: center;
+			}
+			.Information img
+			{
+				margin-top: -75px;
+			}
+			.Information a
+			{
+				font-size: 5.5em;
+				color: white;
+				letter-spacing: 1px;
+				text-shadow: 2px 2px 20px #606060;
+				text-decoration: none;
+				font-weight: 1000;
+			}
+			#fg
+			{
+				font-size: 1.2em;
+			}
+			.Information button
+			{
+				margin-top: 180px;
+				background-color: #2b2b2b;
+				border-radius: 60px;
+				padding: 10px;
+				margin-bottom: 50px;
+				border-color: #212121;
+				color: #6d6d6d;
+				font-size: 1em;
+				width: 160px;
+				box-shadow: 1px 1px 10px #2b2b2b;
+				border:1px solid #2b2b2b;;
+				opacity: 0.6;
+				margin-left: -10px;
+				transition: 0.3s;
+			}
+			.Information button:hover
+			{
+				opacity: 1;
+				color: #a1d849;
+				text-shadow: 0px 0px 20px #a1d849;
+				border:3px solid white;
+				box-shadow: 0px 0px 10px white;
+				transform: scale(1.1);
+				font-weight: 500;
+			}
+/* -------------- End of Header Block ------------- */
+
+/* -------------- Begin of General Block ------------- */
+			#General
+			{
+
+				background: rgb(96,96,96);
+				background: linear-gradient(0deg, rgba(96,96,96,1) 87%, rgba(25,25,25,1) 100%);
+				display: block;
+				padding: 0px;
+				width: 100%;
+			}
+			#name
+			{
+				margin-top: 200px;
+				margin-bottom: 100px;
+				font-size: 3em;
+				color: white;
+				text-decoration: none;
+				cursor: default;
+				font-weight: 1000;
+				text-shadow: 0px 0px 20px white;
+			}
+			.objects
+			{
+				margin: 15px;
+				background-color: #161616;
+				width: 290px;
+				height: 300px;
+				display: inline-flex;
+				box-shadow: 0px 0px 50px #3a3a3a;
+				border-radius: 20px;
+				text-align: center;
+				padding: 10px;
+				transition: .3s;
+				opacity: 0.6;
+			}
+			.objects:hover
+			{
+				transform: scale(1.1);
+				opacity: 1;
+			}
+			.objects img
+			{
+				height: 50%;
+				border-radius: 20px;
+				transform: translateY(-20%);
+			}
+			.objects div
+			{
+				border:3px solid white;
+				border-radius: 15px;
+				box-shadow: 0px 0px 10px white;
+			}
+			.objects div:hover
+			{
+				border:3px solid #a1d849;
+				box-shadow: 0px 0px 10px #a1d849;
+			}
+			.app
+			{
+				padding: 0px;
+				margin: 0 auto;
+				font-size: 2.3em;
+				text-align: center;
+				font-weight: 1000;
+				color: white;
+			}
+			.app:hover
+			{
+				text-decoration: none;
+				color: white;
+			}
+			.objects a button
+			{
+				text-decoration: none;
+				color: white;
+				padding: 20px;
+				width: 170px;
+				font-weight: 1000;
+				border-radius: 20px;
+				background-color: #2b2b2b;
+				border:4px solid #1c1c1c;
+				font-size: 1em;
+				transition: 0.5s;
+				transform: translateY(30%);
+			}
+			.objects a button:hover
+			{
+				padding: 20px;
+				width: 140px;
+				border-radius: 20px;
+				background-color: #2b2b2b;
+				border:4px solid #a1d849;
+				box-shadow: 0px 0px 20px #a1d849;
+				transform: translateY(-2%);
+			}
+			#blackPanel
+			{
+				display: none;
+				position: fixed;
+				z-index: 100;
+				box-sizing: border-box;
+				top:50%;
+				background-color: black;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 100vw;
+				height: 100vh;
+				opacity: 0;
+				transition: 0.4s;
+			}
+			#smallinfo
+			{
+				display: none;
+				z-index: 101;
+				top:50%;
+				width: 700px;
+				padding: 0px;
+				border:4px solid white;
+				border-radius: 10px;
+				background-color: #141414;
+				left: 50%;
+				opacity: 0;
+				transform: translate(-50%,-50%);
+				position: fixed;
+				transition: 0.6s;
+			}
+			#smallinfo p 
+			{
+				border-bottom:4px solid white;
+				font-size: 4em;
+				width: 100%;
+				padding: 10px;
+				margin: 0px auto;
+				font-weight: 1000;
+				color: white;
+			}
+			#smallinfo li
+			{
+				font-size: 1.4em;
+				text-align: left;
+				word-spacing: 5px;
+				margin-top: 15px;
+				font-weight: 1000;
+				color: white;
+			}
+			#smallinfo img
+			{
+				position: absolute;
+				width: 100px;
+				top: 20%;
+				right: 2%;
+				border:5px solid white;
+				border-radius: 10px;
+				box-shadow: 0px 0px 10px white;
+			}
+			#smallinfo span
+			{
+				color: black;
+				font-size: 1.3em;
+				font-weight: 1000;
+				background-color: white;
+				z-index: 300;
+				position: absolute;
+				width: 99px;
+				top: 37.5%;
+				right: 2%;
+				border-right :5px solid white;
+				border-left :5px solid white;
+				border-bottom-right-radius: 10px;
+				border-bottom-left-radius: 10px;
+				border-bottom :5px solid white;
+				box-shadow: 0px 0px 10px white;
+			}
+			#smallinfo2
+			{
+				display: none;
+				z-index: 101;
+				top:50%;
+				width: 700px;
+				padding: 0px;
+				border:4px solid white;
+				border-radius: 10px;
+				background-color: #141414;
+				left: 50%;
+				opacity: 0;
+				transform: translate(-50%,-50%);
+				position: fixed;
+				transition: 0.6s;
+			}
+			#smallinfo2 p 
+			{
+				border-bottom:4px solid white;
+				font-size: 4em;
+				width: 100%;
+				padding: 10px;
+				margin: 0px auto;
+				font-weight: 1000;
+				color: white;
+			}
+			#smallinfo2 li
+			{
+				font-size: 1.4em;
+				text-align: left;
+				word-spacing: 5px;
+				margin-top: 15px;
+				font-weight: 1000;
+				color: white;
+				width: 10%;
+			}
+			#smallinfo2 a
+			{
+				font-size: 0.7em;
+				text-align: left;
+				word-spacing: 5px;
+				margin-top: 15px;
+				font-weight: 1000;
+				color: #a1d849;
+			}
+			#smallinfo2 a:hover
+			{
+				text-decoration: none;
+			}
+			#smallinfo2 span
+			{
+				color: black;
+				font-size: 1.3em;
+				font-weight: 1000;
+				background-color: white;
+				z-index: 300;
+				position: absolute;
+				width: 99px;
+				top: 62.5%;
+				right: 0%;
+				border-right :5px solid white;
+				border-left :5px solid white;
+				border-bottom-right-radius: 10px;
+				border-bottom-left-radius: 10px;
+				border-bottom :5px solid white;
+				box-shadow: 0px 0px 10px white;
+			}
+			#smallinfo3
+			{
+				display: none;
+				z-index: 101;
+				top:50%;
+				width: 900px;
+				padding: 0px;
+				border:4px solid white;
+				border-radius: 10px;
+				background-color: #141414;
+				left: 50%;
+				opacity: 0;
+				transform: translate(-50%,-50%);
+				position: fixed;
+				transition: 0.6s;
+			}
+			#smallinfo3 p 
+			{
+				border-bottom:4px solid white;
+				font-size: 4em;
+				width: 100%;
+				padding: 10px;
+				margin: 0px auto;
+				font-weight: 1000;
+				color: white;
+			}
+			#smallinfo3 img
+			{
+				display: inline-flex;
+				margin: 10px;
+			}
+			#smallinfo3 span
+			{
+				color: white;
+				font-weight: 1000;
+				font-size: 1.5em;
+			}
+			#smallinfo4
+			{
+				display: none;
+				z-index: 101;
+				top:50%;
+				width: 1000px;
+				padding: 0px;
+				border:4px solid white;
+				border-radius: 10px;
+				background-color: #141414;
+				left: 50%;
+				opacity: 0;
+				transform: translate(-50%,-50%);
+				position: fixed;
+				transition: 0.6s;
+			}
+			#smallinfo4 p 
+			{
+				border-bottom:4px solid white;
+				font-size: 4em;
+				width: 100%;
+				padding: 10px;
+				margin: 0px auto;
+				font-weight: 1000;
+				color: white;
+			}
+			#smallinfo4 div
+			{
+				width: 20%;
+				display:inline-block;
+				margin: 20px;
+				align-items: center;
+			}
+			#smallinfo4 a
+			{
+				font-weight: 1000;
+				font-size: 1.3em;
+				color:white;
+			}
+			#smallinfo4 a:hover
+			{
+				text-decoration: none;
+			}
+			#smallinfo6
+			{
+				display: none;
+				z-index: 101;
+				top:50%;
+				width: 40%;
+				padding: 0px;
+				border:4px solid white;
+				border-radius: 10px;
+				background-color: #141414;
+				left: 50%;
+				opacity: 0;
+				transform: translate(-50%,-50%);
+				position: fixed;
+				transition: 0.6s;
+			}
+			#smallinfo6 p 
+			{
+				border-bottom:4px solid white;
+				font-size: 4em;
+				width: 100%;
+				padding: 10px;
+				margin: 0px auto;
+				font-weight: 1000;
+				color: white;
+			}
+			#closeBtn
+			{
+				position: absolute;
+				top: 0%;
+				right: 0%;
+				width: 5%;
+				height: 4%;
+				transition: 0.4s;
+				cursor: pointer;
+				color:#a1d849;
+				text-shadow: 0px 0px 7px #a1d849;
+			}
+			#closeBtn:hover
+			{
+				transform: scale(1.4);
+				text-decoration: none;
+			}
+			
+
+/* -------------- End of General Block ------------- */
+
+
+/* -------------- Begin of Projects Block ------------- */
+			#Projects
+			{
+				display: block;
+				background: rgb(25,25,25);
+				background: linear-gradient(0deg, rgba(25,25,25,1) 96%, rgba(96,96,96,1) 100%);
+			}
+			#Projects p
+			{
+				margin-top: 200px;
+				font-size: 3em;
+				color: white;
+				text-decoration: none;
+				cursor: default;
+				font-weight: 1000;
+				text-shadow: 0px 0px 20px white;
+			}
+			#Projects a
+			{
+				font-size: 3em;
+				color: white;
+				text-decoration: none;
+				cursor: default;
+				font-weight: 1000;
+			}
+			#Projects table 
+			{
+				width: 100%;
+				margin-top: 220px;
+			}
+			#Projects table td:first-child
+			{
+				text-align: left;
+				width: 30%;
+				color: white;
+				padding: 10px;
+			}
+			#Projects table td ul li
+			{
+				margin: 0 auto;
+				margin-top: 20px;
+				list-style-type: disc;
+				font-size: 1.2em;
+				font-weight: 1000;
+				letter-spacing: 2px;
+				word-spacing: 3px;
+			}
+			#Projects table td:last-child
+			{
+				margin-right: 50px;
+				text-align: right;
+				padding: 20px;
+				padding-left: 40px;
+				width: 30%;
+			}
+
+/* -------------- End of Projects Block ------------- */
+
+		</style>
+		<script type="text/javascript">
+			function OnClickCloseModal1()
+			{
+				document.getElementById('blackPanel').style.opacity = "0";
+				document.getElementById('smallinfo').style.opacity = "0";
+				window.setTimeout(GiperClose1, 600);
+			}
+			function OnClickOpenModal1()
+			{
+				document.getElementById('blackPanel').style.display = "block";
+				document.getElementById('smallinfo').style.display = "block";
+				window.setTimeout(GiperOpen1, 200);
+			}	
+
+			function OnClickCloseModal2()
+			{
+				document.getElementById('blackPanel').style.opacity = "0";
+				document.getElementById('smallinfo2').style.opacity = "0";
+				window.setTimeout(GiperClose2, 600);
+			}
+			function OnClickOpenModal2()
+			{
+				document.getElementById('blackPanel').style.display = "block";
+				document.getElementById('smallinfo2').style.display = "block";
+				window.setTimeout(GiperOpen2, 200);
+			}	
+
+			function OnClickCloseModal3()
+			{
+				document.getElementById('blackPanel').style.opacity = "0";
+				document.getElementById('smallinfo3').style.opacity = "0";
+				window.setTimeout(GiperClose3, 600);
+			}
+			function OnClickOpenModal3()
+			{
+				document.getElementById('blackPanel').style.display = "block";
+				document.getElementById('smallinfo3').style.display = "block";
+				window.setTimeout(GiperOpen3, 200);
+			}	
+
+			function OnClickCloseModal4()
+			{
+				document.getElementById('blackPanel').style.opacity = "0";
+				document.getElementById('smallinfo4').style.opacity = "0";
+				window.setTimeout(GiperClose4, 600);
+			}
+			function OnClickOpenModal4()
+			{
+				document.getElementById('blackPanel').style.display = "block";
+				document.getElementById('smallinfo4').style.display = "block";
+				window.setTimeout(GiperOpen4, 200);
+			}	
+
+			function OnClickCloseModal6()
+			{
+				document.getElementById('blackPanel').style.opacity = "0";
+				document.getElementById('smallinfo6').style.opacity = "0";
+				window.setTimeout(GiperClose6, 600);
+			}
+			function OnClickOpenModal6()
+			{
+				document.getElementById('blackPanel').style.display = "block";
+				document.getElementById('smallinfo6').style.display = "block";
+				window.setTimeout(GiperOpen6, 200);
+			}		
+
+			function GiperClose6()
+			{
+				document.getElementById('blackPanel').style.display = "none";
+				document.getElementById('smallinfo6').style.display = "none";
+			}
+
+			function GiperOpen6()
+			{
+				document.getElementById('blackPanel').style.opacity = "0.6";
+				document.getElementById('smallinfo6').style.opacity = "1";
+			}
+
+			function GiperClose4()
+			{
+				document.getElementById('blackPanel').style.display = "none";
+				document.getElementById('smallinfo4').style.display = "none";
+			}
+
+			function GiperOpen4()
+			{
+				document.getElementById('blackPanel').style.opacity = "0.6";
+				document.getElementById('smallinfo4').style.opacity = "1";
+			}
+
+			function GiperClose3()
+			{
+				document.getElementById('blackPanel').style.display = "none";
+				document.getElementById('smallinfo3').style.display = "none";
+			}
+
+			function GiperOpen3()
+			{
+				document.getElementById('blackPanel').style.opacity = "0.6";
+				document.getElementById('smallinfo3').style.opacity = "1";
+			}
+
+			function GiperClose2()
+			{
+				document.getElementById('blackPanel').style.display = "none";
+				document.getElementById('smallinfo2').style.display = "none";
+			}
+
+			function GiperOpen2()
+			{
+				document.getElementById('blackPanel').style.opacity = "0.6";
+				document.getElementById('smallinfo2').style.opacity = "1";
+			}
+
+			function GiperClose1()
+			{
+				document.getElementById('blackPanel').style.display = "none";
+				document.getElementById('smallinfo').style.display = "none";
+			}
+
+			function GiperOpen1()
+			{
+				document.getElementById('blackPanel').style.opacity = "0.6";
+				document.getElementById('smallinfo').style.opacity = "1";
+			}
+		</script>
+	</head>
+	<body>
+		<header class="container">
+				<nav class="navbar">
+						<ul>
+							<li>
+								<img href="index.html" src="Unity_Logo.png" width="60">
+							</li>
+							<li>
+								<a href="#General">Главная</a>
+							</li>
+							<li>
+								<a href="#Projects">Проекты</a>
+							</li>
+							<li>
+								<a href="index-ru.html"><img src="429736318.jpg" width="30" class="lngbtn"></a>
+							</li>
+							<li>
+								<a href="index-en.html"><img src="english-flag.png" width="30" class="lngbtn"></a>
+							</li>
+						</ul>
+				</nav>
+				<div class="Information">
+					<a>JUNIOR UNITY DEVELOPER -</a>
+					<a style="color: #a1d849;">ДИНАР ИСМАГИЛОВ</a>
+					<img src="615998664.png" width="100"></br>
+					<a href="#General" id="fg">
+						<button>
+							ГЛАВНАЯ
+						</button>						
+					</a>
+				</div>
+		</header>
+		<section id="General">
+			<div class="container">
+				<p id="name">ГЛАВНАЯ</p>
+					<div style="margin-bottom: 200px;">
+						<div class="objects">
+							<div>
+								<img src="profiler.png" width="50%">
+								</br>
+								<a class="app">&#10094;ОБО МНЕ&#10095;</a><br/>
+								<a onclick="OnClickOpenModal1()">
+									<button >
+										ПОКАЗАТЬ
+									</button>								
+								</a>
+							</div>
+						</div>
+						<div class="objects">
+							<div>
+								<img src="LInks.png" width="50%">
+								</br>
+								<a class="app">&#10094;ССЫЛКИ&#10095;</a><br/>
+								<a onclick="OnClickOpenModal2()">
+									<button>
+										ПОКАЗАТЬ
+									</button>								
+								</a>
+							</div>
+						</div>
+						<div class="objects">
+							<div>
+								<img src="folder.png" width="50%">
+								</br>
+								<a class="app">&#10094;ПРОЕКТЫ&#10095;</a><br/>
+								<a onclick="OnClickOpenModal3()">
+									<button>
+										ПОКАЗАТЬ
+									</button>								
+								</a>
+							</div>
+						</div>
+						<div class="objects">
+							<div>
+								<img src="exp.png" width="70%">
+								</br>
+								<a class="app">&#10094;ОПЫТ&#10095;</a><br/>
+								<a onclick="OnClickOpenModal4()">
+									<button>
+										ПОКАЗАТЬ
+									</button>								
+								</a>
+							</div>
+						</div>
+						<div class="objects">
+							<div>
+								<img src="google.png" width="50%">
+								</br>
+								<a class="app" style="font-size: 1.49em;">&#10094;МОЙ АККАУНТ РАЗРАБОТЧИКА&#10095;</a><br/>
+								<a href="https://play.google.com/store/apps/dev?id=6132302749498118460" target="_blank">
+									<button>
+										ПОКАЗАТЬ
+									</button>								
+								</a>
+							</div>
+						</div>
+						<div class="objects">
+							<div>
+								<img src="other.png" width="50%">
+								</br>
+								<a class="app">&#10094;ДРУГОЕ&#10095;</a><br/>
+								<a onclick="OnClickOpenModal6()">
+									<button>
+										ПОКАЗАТЬ
+									</button>								
+								</a>
+							</div>
+						</div>
+					</div>
+					<div id="smallinfo">
+						<p>
+							Обо мне
+						</p>
+						<ul>
+							<li>Как меня зовут?<br/>
+								Мое имя Динар Фамилия Исмагилов</li>
+							<li>Сколько мне лет?<br/>
+								Мне 19 лет</li>
+							<li>Кто я такой?<br/>
+								Я студент технического колледжа информационных технологии сейчас я на 4-ом курсе и в ссвободное время делаю игры на юнити и выполняю различные фриланс работы, также балаюсь в блендере</li>
+							<li>Каков я человек?<br/>
+								Я не знаю, но окружающие говорят, что я хороший, прост и легок в обучнии, интересный в каком то плане. Стараюсь быть пунктуальным и это выходит.
+							</li>
+							<li>Как долго я знаком с Unity?<br/>
+								+- Полтора года я начал его изучение в 2020-ом году в апреле
+							</li>
+						</ul>
+						<img src="photo_2021-07-07_21-19-18 (2).jpg"> 
+						<span>
+							ЭТО Я!
+						</span>
+						<a id="closeBtn" onclick="OnClickCloseModal1()">
+							&#x2715;
+						</a>
+					</div>
+					<div id="smallinfo2">
+						<p>
+							Ссылки
+						</p>
+						<ul>
+							<li>TELEGRAM<br/>
+								<a href="https://t.me/BullyAndroidDeveloperShit">https://t.me/BullyAndroidDeveloperShit</a></li>
+							<li>FL.RU<br/>
+								<a href="https://www.fl.ru/users/donishaider2000/portfolio/">https://www.fl.ru/users/donishaider2000/portfolio/</a></li>
+							<li>HH.RU<br/>
+								<a href="https://kazan.hh.ru/resume/4765805eff08b097a80039ed1f36546e4e4138">https://kazan.hh.ru/resume/4765805eff08b097a80039ed1f36546e4e4138</a></li>
+							<li>GitHub.com<br/>
+								<a href="https://github.com/NikollaMiller">https://github.com/NikollaMiller</a></li>
+						</ul>
+						<a id="closeBtn" onclick="OnClickCloseModal2()">
+							&#x2715;
+						</a>
+					</div>
+					<div id="smallinfo3">
+						<p>
+							Проекты
+						</p>
+						<div>
+							<table>
+								<tr>
+									<td style="border-right: 5px solid white;">
+										<span>
+											Главные Проекты
+										</span>		<br/>	
+										<a href="https://play.google.com/store/apps/details?id=com.dinchik.PiggyRUN" target="_blank"><img src="6.png"></a>
+										<a href="https://play.google.com/store/apps/details?id=com.DinCompany.TapToSmash" target="_blank"><img src="7.png"></a>
+										<a href="https://www.fl.ru/users/donishaider2000/portfolio/6754100/test-sayt/"><img src="web1.png" width="184"></a>
+									</td>
+									<td>									
+										<span>
+											Второстепенные Проекты
+										</span>		<br/>			
+										<a href="https://play.google.com/store/apps/details?id=com.PonkyGames.BombVSEnemys" target="_blank"><img src="1.png"></a>
+										<a href="https://play.google.com/store/apps/details?id=com.Serhio.ZombieShooter" target="_blank"><img src="2.png"></a>
+										<a href="https://play.google.com/store/apps/details?id=com.NastyGames.TaptoBalloons" target="_blank"><img src="3.png"></a>									
+										<a href="https://play.google.com/store/apps/details?id=com.MaximGames.ArrowShooting" target="_blank"><img src="4.png"></a>
+										<a href="https://play.google.com/store/apps/details?id=com.oleksiGames.CarsRacing2D" target="_blank"><img src="5.png"></a>
+										<a href="https://play.google.com/store/apps/details?id=com.DmitriGames.CannonShoting3D" target="_blank"><img src="cannon.png"></a>
+										<a href="https://www.fl.ru/users/donishaider2000/portfolio/7042057/web-page-for-man/"><img src="web1.png" width="184"></a>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<a id="closeBtn" onclick="OnClickCloseModal3()">
+							&#x2715;
+						</a>
+					</div>
+					<div id="smallinfo4">
+						<p>
+							Опыт
+						</p>
+						<div>
+							<img src="serf.jpg" width="100%"><br/>
+							<a>
+								Сертификат о том что прошел курс по C# на Sololearn в 2020-ом году.
+							</a>
+						</div>
+						<div>
+							<img src="Unity_Logo.png" width="70%"><br/>
+							<a>
+								Практикуюсь на unity3D/2D более полтора года.
+							</a>
+						</div>
+						<div>
+							<img src="BlenderDesktopLogo.png" width="70%"><br/>
+							<a>
+								Практикуюсь на Blender более полугода.
+							</a>
+						</div>
+						<div>
+							<img src="gravit-logo-2000x2000.png" width="70%"><br/>
+							<a>
+								Практикуюсь на Gravit Designer более полтора года. 
+							</a>
+						</div>
+						<div>
+							<img src="10png.png" width="70%"><br/>
+							<a>
+								Практикую HTML уже 2 года.
+							</a>
+						</div>
+						<div>
+							<img src="11.png" width="70%"><br/>
+							<a>
+								Практикую CSS уже 2 года.
+							</a>
+						</div>
+						<div>
+							<img src="12.png" width="70%"><br/>
+							<a>
+								Практикую JavaScript уже пол года.
+							</a>
+						</div>
+						<a id="closeBtn" onclick="OnClickCloseModal4()">
+							&#x2715;
+						</a>
+					</div>
+					<div id="smallinfo6">
+						<p>
+							Другое
+						</p>
+						<p>
+							СКОРО....
+						</p>
+						<a id="closeBtn" onclick="OnClickCloseModal6()">
+							&#x2715;
+						</a>
+					</div>
+				<div id="blackPanel"></div>
+			</div>			
+		</section>
+		<footer>
+			<section class="container">
+					
+			</section>
+		</footer>
+	</body>
+</html>
